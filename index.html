@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Organização Solidária</title>
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header role="banner" class="container">
+    <nav aria-label="Navegação principal">
+      <figure class="logo-area">
+        <img src="img/ceb5cf4a02d45fa49dc671e7d2014c32-icone-de-toque-de-aperto-de-mao.webp" alt="Logo da Organização" class="logo">
+        <figcaption class="titulo-site">Organização Solidária</figcaption>
+      </figure>
+
+      <button class="hamburger" aria-label="Abrir menu" id="hamburger-btn">☰</button>
+
+      <ul class="menu" id="main-menu" role="menubar">
+        <li role="none"><a role="menuitem" class="ativo" href="index.html">Início</a></li>
+        <li role="none"><a role="menuitem" href="projeto.html">Projetos</a></li>
+        <li role="none"><a role="menuitem" href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main" class="container">
+    <section class="grid" aria-labelledby="titulo-sobre">
+      <article class="card col-8">
+        <h2 id="titulo-sobre">Quem Somos</h2>
+        <p>
+          Somos uma organização sem fins lucrativos dedicada a transformar vidas
+          por meio de ações sociais, voluntariado e doações.
+          Nosso foco está em oferecer oportunidades e esperança para comunidades em vulnerabilidade.
+        </p>
+        <figure>
+          <img src="img/prop02-111820.jpg" alt="Equipe de voluntários">
+          <figcaption>Voluntários da Organização Solidária em ação.</figcaption>
+        </figure>
+      </article>
+
+      <aside class="card col-4" aria-labelledby="titulo-contato">
+        <h3 id="titulo-contato">Contato</h3>
+        <address>
+          <p><strong>Email:</strong> <a href="mailto:contato@organizacaosolidaria.org">contato@organizacaosolidaria.org</a></p>
+          <p><strong>Telefone:</strong> (11) 99999-9999</p>
+          <p><span class="badge">Atendimento das 9h às 18h</span></p>
+        </address>
+      </aside>
+    </section>
+
+    <section class="grid" aria-labelledby="titulo-projetos">
+      <h2 id="titulo-projetos" class="col-12">Nossos Projetos</h2>
+
+      <article class="card col-4">
+        <figure>
+          <img src="img/DSC06761-1024x683.jpg" alt="Entrega de alimentos para famílias">
+          <figcaption>Mutirão de doações alimentares.</figcaption>
+        </figure>
+        <h3>Projeto Alimentação</h3>
+        <p>Distribuímos cestas básicas e promovemos segurança alimentar em comunidades carentes.</p>
+        <p><a class="btn" href="projeto.html#alimentacao">Saiba Mais</a></p>
+      </article>
+
+      <article class="card col-4">
+        <figure>
+          <img src="img/como-elaborar-um-projeto-de-educacao-infantil-adequado.jpg" alt="Crianças em aula de reforço escolar">
+          <figcaption>Turma de reforço educacional.</figcaption>
+        </figure>
+        <h3>Projeto Educação</h3>
+        <p>Oferecemos aulas de reforço, alfabetização de adultos e oficinas culturais gratuitas.</p>
+        <p><a class="btn" href="projeto.html#educacao">Saiba Mais</a></p>
+      </article>
+
+      <article class="card col-4">
+        <figure>
+          <img src="img/prop02-111820.jpg" alt="Voluntários reformando casas populares">
+          <figcaption>Reformas solidárias em moradias.</figcaption>
+        </figure>
+        <h3>Projeto Moradia</h3>
+        <p>Reformamos e melhoramos moradias de famílias em situação de vulnerabilidade social.</p>
+        <p><a class="btn" href="projeto.html#moradia">Saiba Mais</a></p>
+      </article>
+    </section>
+
+    <section class="card col-12" aria-labelledby="titulo-voluntario">
+      <h2 id="titulo-voluntario">Junte-se a Nós</h2>
+      <p>
+        Quer fazer parte dessa transformação? Seja um voluntário e contribua para nossas ações sociais.  
+        Seu tempo e dedicação fazem toda a diferença!
+      </p>
+      <p><a href="cadastro.html" class="btn">Cadastre-se Agora</a></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="container">
+    <figure>
+      <img src="img/ceb5cf4a02d45fa49dc671e7d2014c32-icone-de-toque-de-aperto-de-mao.webp" alt="Logo da Organização" class="footer-logo">
+    </figure>
+    <p>&copy; 2025 Organização Solidária. Todos os direitos reservados.</p>
+  </footer>
+
+<script>
+  const hamb = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('main-menu');
+
+  // Garante que o menu comece no estado correto
+  function ajustarMenuInicial() {
+    if (window.innerWidth <= 768) {
+      menu.classList.remove('mobile-open');
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'flex';
+    }
+  }
+
+  // Alterna entre abrir e fechar o menu no mobile
+  function alternarMenu(e) {
+    e.stopPropagation();
+    if (menu.classList.contains('mobile-open')) {
+      menu.classList.remove('mobile-open');
+      menu.style.display = 'none';
+    } else {
+      menu.classList.add('mobile-open');
+      menu.style.display = 'flex';
+    }
+  }
+
+  // Fecha o menu se clicar fora
+  function fecharMenu(e) {
+    if (window.innerWidth <= 768 &&
+        !menu.contains(e.target) &&
+        !hamb.contains(e.target)) {
+      menu.classList.remove('mobile-open');
+      menu.style.display = 'none';
+    }
+  }
+
+  // Fecha o menu ao clicar num link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        menu.classList.remove('mobile-open');
+        menu.style.display = 'none';
+      }
+    });
+  });
+
+  hamb.addEventListener('click', alternarMenu);
+  document.addEventListener('click', fecharMenu);
+  window.addEventListener('resize', ajustarMenuInicial);
+  window.addEventListener('DOMContentLoaded', ajustarMenuInicial);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projetos | Organização Solidária</title>
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header role="banner" class="container">
+    <nav aria-label="Navegação principal">
+      <figure class="logo-area">
+        <img src="img/ceb5cf4a02d45fa49dc671e7d2014c32-icone-de-toque-de-aperto-de-mao.webp" alt="Logo" class="logo">
+        <figcaption class="titulo-site">Organização Solidária</figcaption>
+      </figure>
+
+      <button class="hamburger" aria-label="Abrir menu" id="hamburger-btn">☰</button>
+
+      <ul class="menu" id="main-menu" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Início</a></li>
+        <li role="none"><a role="menuitem" class="ativo" href="projeto.html">Projetos</a></li>
+        <li role="none"><a role="menuitem" href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main" class="container">
+    <header class="card col-12">
+      <h1>Projetos Sociais</h1>
+      <p>
+        Conheça as principais frentes de atuação da <strong>Organização Solidária</strong> —
+        promovendo dignidade, inclusão e desenvolvimento comunitário.
+      </p>
+    </header>
+
+    <section class="grid" aria-labelledby="titulo-projetos">
+      <article id="alimentacao" class="card col-12" aria-labelledby="titulo-alimentacao">
+        <h2 id="titulo-alimentacao">Projeto Alimentação</h2>
+        <figure>
+          <img src="img/DSC06761-1024x683.jpg" alt="Distribuição de alimentos a famílias carentes">
+          <figcaption>Mutirão de entrega de cestas básicas em comunidades.</figcaption>
+        </figure>
+        <p>
+          Este projeto atua na arrecadação e distribuição de alimentos para famílias em situação de vulnerabilidade social.  
+          Além das doações, promovemos campanhas de conscientização sobre segurança alimentar e combate ao desperdício.
+        </p>
+        <ul>
+          <li>Distribuição semanal de cestas básicas;</li>
+          <li>Campanhas mensais de arrecadação;</li>
+          <li>Parcerias com mercados e ONGs locais.</li>
+        </ul>
+      </article>
+
+      <article id="educacao" class="card col-12" aria-labelledby="titulo-educacao">
+        <h2 id="titulo-educacao">Projeto Educação</h2>
+        <figure>
+          <img src="img/Educador-Social-Voluntario-Foto-Wladimir-Luz.jpg" alt="Aulas comunitárias para jovens e adultos">
+          <figcaption>Turmas de reforço escolar e oficinas educativas.</figcaption>
+        </figure>
+        <p>
+          O Projeto Educação oferece reforço escolar, aulas de alfabetização de adultos e oficinas profissionalizantes.  
+          Nosso objetivo é fortalecer a inclusão educacional e ampliar oportunidades de aprendizado.
+        </p>
+        <ul>
+          <li>Reforço escolar gratuito para alunos do ensino fundamental e médio;</li>
+          <li>Oficinas de leitura e escrita para adultos;</li>
+          <li>Parcerias com professores voluntários.</li>
+        </ul>
+      </article>
+
+      <article id="moradia" class="card col-12" aria-labelledby="titulo-moradia">
+        <h2 id="titulo-moradia">Projeto Moradia</h2>
+        <figure>
+          <img src="img/prop02-111820.jpg" alt="Voluntários reformando casas populares">
+          <figcaption>Reformas e melhorias em moradias de famílias carentes.</figcaption>
+        </figure>
+        <p>
+          O Projeto Moradia tem como foco melhorar as condições habitacionais de famílias de baixa renda.  
+          Atuamos com reformas, pequenas construções e adequações para acessibilidade.
+        </p>
+        <ul>
+          <li>Mutirões de reforma com voluntários;</li>
+          <li>Fornecimento de materiais de construção doados;</li>
+          <li>Projetos de adaptação para pessoas com deficiência.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="container">
+    <figure>
+      <img src="img/ceb5cf4a02d45fa49dc671e7d2014c32-icone-de-toque-de-aperto-de-mao.webp" alt="Logo" class="footer-logo">
+    </figure>
+    <p>&copy; 2025 Organização Solidária. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const hamb = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('main-menu');
+
+    function ajustarMenuInicial() {
+      if (window.innerWidth <= 768) {
+        menu.classList.remove('mobile-open');
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+
+    function alternarMenu(e) {
+      e.stopPropagation();
+      if (menu.classList.contains('mobile-open')) {
+        menu.classList.remove('mobile-open');
+        menu.style.display = 'none';
+      } else {
+        menu.classList.add('mobile-open');
+        menu.style.display = 'flex';
+      }
+    }
+
+    function fecharMenu(e) {
+      if (window.innerWidth <= 768 &&
+          !menu.contains(e.target) &&
+          !hamb.contains(e.target)) {
+        menu.classList.remove('mobile-open');
+        menu.style.display = 'none';
+      }
+    }
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          menu.classList.remove('mobile-open');
+          menu.style.display = 'none';
+        }
+      });
+    });
+
+    hamb.addEventListener('click', alternarMenu);
+    document.addEventListener('click', fecharMenu);
+    window.addEventListener('resize', ajustarMenuInicial);
+    window.addEventListener('DOMContentLoaded', ajustarMenuInicial);
+  </script>
+</body>
+</html>
