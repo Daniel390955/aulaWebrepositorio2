@@ -106,7 +106,6 @@
   const hamb = document.getElementById('hamburger-btn');
   const menu = document.getElementById('main-menu');
 
-  // Garante que o menu comece no estado correto
   function ajustarMenuInicial() {
     if (window.innerWidth <= 768) {
       menu.classList.remove('mobile-open');
@@ -115,8 +114,6 @@
       menu.style.display = 'flex';
     }
   }
-
-  // Alterna entre abrir e fechar o menu no mobile
   function alternarMenu(e) {
     e.stopPropagation();
     if (menu.classList.contains('mobile-open')) {
@@ -128,7 +125,7 @@
     }
   }
 
-  // Fecha o menu se clicar fora
+
   function fecharMenu(e) {
     if (window.innerWidth <= 768 &&
         !menu.contains(e.target) &&
@@ -138,7 +135,7 @@
     }
   }
 
-  // Fecha o menu ao clicar num link
+
   document.querySelectorAll('.menu a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
@@ -157,3 +154,4 @@
 
 </body>
 </html>
+
